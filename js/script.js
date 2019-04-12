@@ -5,7 +5,7 @@ let quote = [
     source: 'Titus Maccius Plautus',
     citation: 'Captivi - Act I',
     year: '254 - 184BC',
-    tags: ['motivation', 'life-lessons', 'wisdom, rome']
+    tags: ['motivation', 'life-lessons', 'wisdom', 'rome']
   },
   {
     quote: 'Things which you do not hope happen more frequently than things which you do hope.',
@@ -83,15 +83,15 @@ function printQuote () {
   htmlString += '<p class="quote">' + randomObject.quote + '</p>';
   htmlString += '<p class="source">' + randomObject.source;
   
-    if (typeof citation !== 'undefined' && citation !== '') {
+    if (citation) {
        htmlString +='<span class = "citation">' + citation + '</span>';
     } 
 
-    if (typeof year !== 'undefined' && year !== '') {
+    if (year) {
         htmlString += '<span class = "year">'+ year + '</span>';
     } 
 
-    if (typeof tags !== 'undefined' && tags !== '') {
+    if (tags) {
       htmlString += '<p class = "tag">Tags: ' + tags.join(', ') + '</p>';
     } 
 
