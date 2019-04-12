@@ -32,8 +32,7 @@ let quote = [
     quote: 'You see things; and you say, Why? But I dream things that never were; and I say, Why not?',
     source: 'George Bernard Shaw',
     citation: 'Back to Methuselah, act I',
-    year: 1949,
-    tags: ['inspiration', 'explore', 'dream', 'innovation', 'idea']
+    year: 1949
   },
   {
     quote: 'Some folks look at me and see a certain swagger, which in Texas is called, walking.',
@@ -46,7 +45,6 @@ let quote = [
     quote: 'It is our choices... that show what we truly are, far more than our abilities.',
     source: 'J.K Rowling',
     citation: 'Harry Potter and the Chamber of Secrets',
-    year: 1998,
     tags: ['potential', 'future', 'harry', 'potter', 'ability']
   }
 ];
