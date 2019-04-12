@@ -49,7 +49,7 @@ let quote = [
   }
 ];
 
-// Create global variable to hold index value to ensure no quote repeat's itself
+// Create global variable to hold index value to ensure no quote repeat's after itself
 let randomIndex;
 //returns a random object by generating a random index number from list of objects in quote array 
 function getRandomQuote(){
@@ -78,19 +78,19 @@ function printQuote () {
   let year = randomObject.year;
   let tags = randomObject.tags;
   let htmlString = '';
-  htmlString += '<p class="quote">' + randomObject.quote + '</p>';
+  htmlString += `<p class="quote">${randomObject.quote}</p>`;
   htmlString += '<p class="source">' + randomObject.source;
   
     if (citation) {
-       htmlString +='<span class = "citation">' + citation + '</span>';
+       htmlString +=`<span class = "citation">${citation}</span>`;
     } 
 
     if (year) {
-        htmlString += '<span class = "year">'+ year + '</span>';
+        htmlString +=`<span class = "year">${year}</span>`;
     } 
 
     if (tags) {
-      htmlString += '<p class = "tag">Tags: ' + tags.join(', ') + '</p>';
+      htmlString += `<p class = "tag">Tags: ${tags.join(', ')}</p>`;
     } 
 
   htmlString += '</p>';
