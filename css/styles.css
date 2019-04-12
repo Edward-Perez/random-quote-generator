@@ -11,7 +11,7 @@ body {
 
 #quote-box {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 10%;
   right: 10%;
   width: 80%;
@@ -77,7 +77,7 @@ body {
   display: inline-block;
   left: 50%;
   margin-left: -6em;
-  bottom: 150px;
+  bottom: 200px;
   border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
@@ -93,14 +93,47 @@ body {
   outline: none;
 }
 
-@media (min-width: 420px) {
-  .quote {
-    font-size: 4rem;
+@media screen and (min-width: 820px) {
+  #quote-box {
+    font-size: 1rem;
   }
   .quote:before, .quote:after {
     font-size: 6rem;
   }
   .source {
     font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .quote {
+    font-size: 2rem; 
+  }
+  .quote:before, .quote:after {
+    font-size: 4rem;
+  }
+  .source {
+    font-size: 1rem;
+  }
+  .tag {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .quote {
+    font-size: 2rem; 
+  }
+  .quote:before, .quote:after {
+    font-size: 2rem;
+  }
+  .source {
+    font-size: .90rem;
+  }
+  .tag {
+    font-size: .75rem;
+  }
+  #loadQuote {
+    bottom: 100px;
   }
 }
