@@ -2,7 +2,7 @@
 ### Project 1 from the Treehouse Full Stack Javascript TechDegree program. 
 **_Display's the knowledge of basic JavaScript syntax, variables, loops, conditionals and object literals._**
 
-This project actively returns a random quote from an array of objects to the user every 30 seconds and/or when the user clicks a button. The background displays a random color as I am aiming to achieve an Exceeds ratings. 
+This project actively returns a random quote from an array of objects to the user every 30 seconds and/or when the user clicks a button. A random background color will appear when a new quote is printed, as I am aiming to achieve an Exceeds ratings. 
 
 ### Project Requirements
 * Array contains at least 5 quote objects.
