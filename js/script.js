@@ -100,6 +100,7 @@ function printQuote () {
   htmlString += '</p>';
 
   document.getElementById('quote-box').innerHTML = htmlString; 
+  // Returns random background color every time printQuote is called
   document.body.style.backgroundColor = getRandomColor();
 }
  
