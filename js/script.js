@@ -1,5 +1,5 @@
 // array of objects with quotes and their properties 
-let quote = [
+let quotes = [
   {
     quote: 'How often the highest talent lurks in obscurity.',
     source: 'Titus Maccius Plautus',
@@ -49,17 +49,18 @@ let quote = [
   }
 ];
 
-// Create global variable to hold index value to ensure no quote repeat's after itself
+// Holds current index value on display to ensure no quote repeat's after itself
 let randomIndex;
-//returns a random object by generating a random index number from list of objects in quote array 
+//returns a random object by generating a random index number  
 function getRandomQuote(){
-  let nextNum = Math.floor((Math.random() * (quote.length)));
+  let nextNum = Math.floor((Math.random() * (quotes.length)));
+  // Checks if current index num is === to new random num
   if(nextNum === randomIndex) {
     getRandomQuote();
   } else {
     randomIndex = nextNum;
   }
-  return quote[randomIndex]; 
+  return quotes[randomIndex]; 
 }
  
 //generates random number, transform into a string, and inserts it into a color hex string variable
@@ -74,12 +75,15 @@ function getRandomColor(){
 //generates a html string using the key values from random quote object  
 function printQuote () {
   let randomObject = getRandomQuote();
+  let quote = randomObject.quote;
+  let source = randomObject.source;
   let citation = randomObject.citation;
   let year = randomObject.year;
   let tags = randomObject.tags;
   let htmlString = '';
-  htmlString += `<p class="quote">${randomObject.quote}</p>`;
-  htmlString += '<p class="source">' + randomObject.source;
+
+  htmlString += `<p class="quote">${quote}</p>`;
+  htmlString += `<p class="source">${source}`;
   
     if (citation) {
        htmlString +=`<span class = "citation">${citation}</span>`;
