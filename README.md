@@ -1,4 +1,5 @@
 # Random Quote Generator 
+## Exceeds Expectations
 ### Project 1 from the Treehouse Full Stack Javascript TechDegree program. 
 **_Display's the knowledge of basic JavaScript syntax, variables, loops, conditionals and object literals._**
 
