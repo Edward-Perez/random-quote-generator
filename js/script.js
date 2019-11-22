@@ -1,5 +1,5 @@
-// array of objects with quotes and their properties 
-let quotes = [
+// Array of objects with quotes and their properties 
+const quotes = [
   {
     quote: 'How often the highest talent lurks in obscurity.',
     source: 'Titus Maccius Plautus',
@@ -32,7 +32,8 @@ let quotes = [
     quote: 'You see things; and you say, Why? But I dream things that never were; and I say, Why not?',
     source: 'George Bernard Shaw',
     citation: 'Back to Methuselah, act I',
-    year: 1949
+    year: 1949,
+    tags: null
   },
   {
     quote: 'Some folks look at me and see a certain swagger, which in Texas is called, walking.',
@@ -45,69 +46,59 @@ let quotes = [
     quote: 'It is our choices... that show what we truly are, far more than our abilities.',
     source: 'J.K Rowling',
     citation: 'Harry Potter and the Chamber of Secrets',
+    year: null,
     tags: ['potential', 'future', 'harry', 'potter', 'ability']
   }
 ];
 
-// Holds current index value on display to ensure no quote repeat's after itself
-let randomIndex;
-//returns a random object by generating a random index number  
+/**
+ * @returns - A random element from the quotes Array.
+ */
 function getRandomQuote(){
-  let nextNum = Math.floor((Math.random() * (quotes.length)));
-  // Checks if current index num is === to new random num
-  if(nextNum === randomIndex) {
-    getRandomQuote();
-  } else {
-    randomIndex = nextNum;
-  }
-  return quotes[randomIndex]; 
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomIndex];
 }
- 
-//generates random number, transform into a string, and inserts it into a color hex string variable
+
+/**
+ * @returns - A random hex color value.
+ */
 function getRandomColor(){
-  let randomColor ='#';
-  let random = (Math.floor((Math.random() * 800000)));
-  numString = random.toString();
-  randomColor += numString;
-  return randomColor; 
+  const randomNumber = Math.floor(Math.random() * 1000000);
+  const hexColor = '#' + randomNumber.toString();
+  return hexColor;
 }
 
-//generates a html string using the key values from random quote object  
-function printQuote () {
-  let randomObject = getRandomQuote();
-  let quote = randomObject.quote;
-  let source = randomObject.source;
-  let citation = randomObject.citation;
-  let year = randomObject.year;
-  let tags = randomObject.tags;
-  let htmlString = '';
-
-  htmlString += `<p class="quote">${quote}</p>`;
-  htmlString += `<p class="source">${source}`;
-  
-    if (citation) {
-       htmlString +=`<span class = "citation">${citation}</span>`;
-    } 
-
-    if (year) {
-        htmlString +=`<span class = "year">${year}</span>`;
-    } 
-
-    if (tags) {
-      htmlString += `<p class = "tag">Tags: ${tags.join(', ')}</p>`;
-    } 
-
-  htmlString += '</p>';
+/**
+ * Display's a random quote and background color.
+ */
+function printQuote() {
+  const randomObject = getRandomQuote();
+  const  { quote, source, citation, year, tags } = randomObject;
+  let htmlString = `<p class="quote">${quote}</p>
+                    <p class="source">${source}</p>`;
+  if (citation) htmlString += `<span class="citation">${citation}</span>`;
+  if (year) htmlString += `<span class="year">${year}</span>`;
+  if (tags) htmlString += `<p class="tag">Tags: ${tags.join(', ')}</p>`;
 
   document.getElementById('quote-box').innerHTML = htmlString; 
-  // Returns random background color every time printQuote is called
   document.body.style.backgroundColor = getRandomColor();
 }
- 
-//30sec timer generating random quote and background color to the user  
-window.setInterval(printQuote, 30000);
- 
-//event listener which triggers the printQuote function when click  
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+/**
+ * Begins display of random quotes.
+ * Additionally, adds event listener to load quote button and place a set/clear interval.
+ */
+function initiate() {
+  printQuote();
+  let timer = setInterval(printQuote, 30000);
 
+  //event listener which triggers the printQuote function when click.  
+  document.getElementById('loadQuote').addEventListener("click", () => {
+    clearInterval(timer);
+    timer = setInterval(printQuote, 30000);
+    printQuote();
+  });
+}
+
+// Event handler to call initiate() once page is loaded.
+window.onload = () => initiate();
